@@ -1,5 +1,10 @@
 const express = require('express');
 const cors = require('cors');
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true,
+    optionSuccessStatus: 200
+}
 const routes = require('./routes');
 
 const app = express();
@@ -8,7 +13,7 @@ const app = express();
 //app.use(cors({
 //    origin: 'http://site'
 //}))
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(routes);
 
